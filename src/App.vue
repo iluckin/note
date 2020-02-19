@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="animated fadeIn delay-0.3s">
     <Header />
+    <Jumbotron />
     <router-view class="animated fadeIn delay-0.5s"/>
     <Subscribe class="shadow-sm" />
     <Footer />
@@ -9,6 +10,7 @@
 
 <script>
   import Header from "./components/layouts/Header";
+  import Jumbotron from "./components/home/Jumbotron";
   import Subscribe from "./components/Subscribe";
   import Footer from "./components/layouts/Footer";
 
@@ -17,6 +19,7 @@
       Header,
       Footer,
       Subscribe,
+      Jumbotron
     }
   }
 </script>

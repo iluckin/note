@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     api: {
-      postApi: "https://5e4250cef6128600148ad2ea.mockapi.io/mock/article?limit=12&p="
+      postApi: "https://5e4250cef6128600148ad2ea.mockapi.io/mock/article?limit=24&p="
     },
     posts: {
       items: [],
@@ -28,17 +28,23 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setPosts (state, posts) {
-      posts.map(post => state.posts.items.push(post))
+    setPosts (state, posts, flush) {
+      flush = flush || false
+      posts.map(post => flush ? state.posts.items = posts : state.posts.items.push(post))
     }
   },
   actions: {
-    async fetchOriginPosts ({ state, commit }) {
+    refresh({state}) {
+      state.posts.items = []
+      state.posts.page = 1
+      this.dispatch('fetchOriginPosts')
+    },
+    async fetchOriginPosts ({ state, commit }, where) {
+      where = where || {category: 0, keyword: ''}
+      console.info('search', where)
+
       let page = state.posts.page
       state.posts.loading = true
-      if (state.posts.items.length > 0 && state.posts.hasNext) {
-        page += 1
-      }
       await fetch(state.api.postApi + page)
           .then(r => r.json())
           .then(items => {

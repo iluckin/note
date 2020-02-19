@@ -26,12 +26,11 @@
 
 <script>
     export default {
-        name: 'subscribe',
+        name: 'search',
         data () {
             return {
-                email: '',
-                mode: '2',
-                alert: ''
+                keyword: '',
+                category: 0
             }
         },
         methods: {

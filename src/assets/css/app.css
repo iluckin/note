@@ -6,10 +6,14 @@
 body {
     font-family: 'Miriam Libre', "Source Sans Pro",system-ui,BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue", sans-serif !important;
     line-height: 1.5; /* 2 */
+    background-image: url("../../assets/images/bg.svg") !important;
+    background-position: top;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 a:hover {
-    color: #ff7018 !important;
+    color: #d4237a !important;
 }
 
 .disabled:hover {
