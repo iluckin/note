@@ -10,12 +10,21 @@ body {
     background-position: top;
     background-size: contain;
     background-repeat: no-repeat;
+    overflow-x: hidden !important;
 }
 
 a:hover {
-    color: #d4237a !important;
+    color: #007a5a !important;
 }
 
+.primary {
+    color: #007a5a;
+}
+
+.bg-primary {
+    background-color: #007a5a !important;
+    color: white;
+}
 .disabled:hover {
     cursor: not-allowed;
 }

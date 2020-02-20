@@ -11,7 +11,7 @@ export default new Vuex.Store({
     posts: {
       items: [],
       page: 1,
-      limit: 12,
+      limit: 6,
       hasNext: true,
       loading: false
     }

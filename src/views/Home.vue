@@ -25,12 +25,10 @@
 <script>
     import { mapGetters } from "vuex";
     import Article from "../components/article/Article";
-    import Subscribe from "../components/Subscribe"
 
     export default {
         components: {
-            Article,
-            Subscribe
+            Article
         },
         methods: {
             refresh() {

@@ -17,11 +17,11 @@ Vue.use(feather, {
     }
   }
 })
-Vue.use(VueLoading, { type: "bars" })
+Vue.use(VueLoading, { type: "bars", color: "#009B72" })
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  error: 'http://img.lanrentuku.com/img/allimg/1307/5-130H2191322-51.gif',
-  loading: 'http://img.lanrentuku.com/img/allimg/1307/5-130H2191322-51.gif',
+  error: 'http://loadinggif.com/generated-image?imageId=13&bgColor=%23ffffff&fgColor=%23a3780d&transparentBg=1&download=0&random=0.898108853256754',
+  loading: 'http://loadinggif.com/generated-image?imageId=13&bgColor=%23ffffff&fgColor=%23a3780d&transparentBg=1&download=0&random=0.898108853256754',
   attempt: 2
 })
 

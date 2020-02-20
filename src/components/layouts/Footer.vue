@@ -3,9 +3,6 @@
         <div class="container-fluid justify-content-center text-center pb-0 mb-0 text-muted">
             <ul class="nav footer-nav justify-content-center m-3">
                 <li class="nav-item mx-2">
-                    <router-link to="/" class="text-muted">Home</router-link>
-                </li>
-                <li class="nav-item mx-2">
                     <router-link to="/about" class="text-muted">About</router-link>
                 </li>
                 <li class="nav-item mx-2">
@@ -13,7 +10,7 @@
                 </li>
             </ul>
             <p class="my-1 small">
-                Designed and develop by <a href="https://thebears.cn" target="_blank">TheBears</a>. Proudly Run in <a href="https://aliyun.com" target="_blank">Alibaba Cloud</a>.
+                Designed and develop by <a href="https://thebears.cn" target="_blank">TheBears</a>.
             </p>
             <p class="copyright mt-2 text-muted small">&copy; 2020 <a href="https://dev.iluckin.cn">iLuckin.Cn</a>.</p>
         </div>
@@ -37,8 +34,8 @@
     }
     .footer-nav .nav-item a {
         text-decoration: none;
-        color: #575757;
-        font-size: .98rem;
+        color: #a7a7a7;
+        font-size: .90rem;
     }
 
     footer p a {
@@ -50,6 +47,6 @@
     }
 
     footer .copyright a {
-        color: #a7a7a7;
+        color: #575757;
     }
 </style>

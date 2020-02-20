@@ -15,7 +15,7 @@
                     <input type="email" v-model="email" class="form-control subscribe-input" placeholder="Your email address" aria-label="Your email address" aria-describedby="basic">
                     <div class="input-group-append ml-2">
                         <span class="input-group-btn" id="basic">
-                          <button class="btn btn-secondary subscribe-btn" @click="subscribe">Subscribe</button>
+                          <button class="btn btn-secondary subscribe-btn px-3" @click="subscribe">Subscribe</button>
                         </span>
                     </div>
                 </div>
