@@ -6,15 +6,17 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     api: {
-      postApi: "https://5e4250cef6128600148ad2ea.mockapi.io/mock/article?limit=24&p="
+      postApi: "https://api.blog.iluckin.cn/articles?limit=24&page=",
+      categoryApi: "https://api.blog.iluckin.cn/categories"
     },
     posts: {
       items: [],
       page: 1,
       limit: 6,
-      hasNext: true,
+      hasNext: false,
       loading: false
-    }
+    },
+    categories: []
   },
   getters: {
     posts (state) {
@@ -25,7 +27,10 @@ export default new Vuex.Store({
     },
     hasNextPage (state) {
       return state.posts.hasNext
-    }
+    },
+    cate (state) {
+      return state.categories
+    } 
   },
   mutations: {
     setPosts (state, posts, flush) {
@@ -40,19 +45,30 @@ export default new Vuex.Store({
       this.dispatch('fetchOriginPosts')
     },
     async fetchOriginPosts ({ state, commit }, where) {
-      where = where || {category: 0, keyword: ''}
+      where = where || {category: 0, title: ''}
       console.info('search', where)
 
       let page = state.posts.page
       state.posts.loading = true
       await fetch(state.api.postApi + page)
           .then(r => r.json())
-          .then(items => {
-            state.posts.page += (items.length ? 1 : 0)
-            items.length ? commit('setPosts', items) : ''
+          .then(res => {
+            state.posts.page += res.data.hasNext === true ? 1 : 0
+            res.data.items.length ? commit('setPosts', res.data.items) : ''
             state.posts.loading = false
-            state.posts.hasNext = items.length && items.length >= state.posts.limit
+            state.posts.hasNext = res.data.hasNext
           })
+    },
+    async fetchCategory ({ state }) {
+      await fetch(state.api.categoryApi)
+          .then(r => r.json())
+          .then(items => {
+            state.categories = items.data
+          })
+    },
+    preload () {
+      this.dispatch('fetchCategory')
+      this.dispatch('fetchOriginPosts')
     }
   }
 })
